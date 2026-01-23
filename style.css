@@ -589,7 +589,7 @@ nav .nav-link:hover::after {
 
 .cert-card:hover {
   background: rgba(255, 255, 255, 0.1);
-  transform: scale(1.05);
+  transform: scale(1.01);
 }
 
 .cert-icon {
