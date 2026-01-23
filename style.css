@@ -113,12 +113,6 @@ nav .logo {
   gap: 8px;
 }
 
-nav .logo-image {
-  height: 22px;
-  width: auto;
-  border-radius: 0px;
-}
-
 nav .desktop-menu {
   display: flex;
   gap: 32px;
