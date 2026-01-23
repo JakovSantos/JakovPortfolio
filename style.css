@@ -21,6 +21,14 @@ body { overflow-x: hidden; }
   padding: 0 24px;
 }
 
+/* Grid Texture */
+.grid-texture-light {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.14) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
 /* Glass Effects */
 .glass-card-light-strong {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.3) 100%);
@@ -81,7 +89,7 @@ nav {
   left: 0;
   right: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.533);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
@@ -106,8 +114,8 @@ nav .logo {
 }
 
 nav .logo-image {
-  width:49px;
-  height:28px;
+  height: 22px;
+  width: auto;
   border-radius: 0px;
 }
 
@@ -207,13 +215,8 @@ nav .nav-link:hover::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 24px 0px;
+  padding: 80px 24px 96px;
   background: #fff;
-  background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-  background-size: 120px 120px;
-  background-attachment: fixed;
   position: relative;
   overflow: hidden;
 }
@@ -221,7 +224,7 @@ nav .nav-link:hover::after {
 .hero-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 89px;
+  gap: 48px;
   align-items: center;
   width: 100%;
 }
@@ -235,6 +238,7 @@ nav .nav-link:hover::after {
   max-width: 600px;
   margin: 0 auto 0px;
   margin-top: 50px;
+  margin-bottom: -99px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -243,11 +247,16 @@ nav .nav-link:hover::after {
 }
 
 .hero-image:hover {
-    transform: scale(1.03);
+  transform: scale(1.03);
   filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.3));
 }
 
-
+.hero-image svg {
+  width: 128px;
+  height: 128px;
+  color: rgba(0, 0, 0, 0.2);
+  stroke-width: 1.5;
+}
 
 .hero-text {
   text-align: left;
@@ -318,7 +327,7 @@ nav .nav-link:hover::after {
 
 .btn-primary-light:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.05);
 }
 
 .btn-secondary-light {
@@ -338,8 +347,8 @@ nav .nav-link:hover::after {
 }
 
 .btn-secondary-light:hover {
-  background: rgba(0, 0, 0, 0.08); 
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.05);
   transform: translateY(-2px);
 }
 
@@ -523,7 +532,7 @@ nav .nav-link:hover::after {
   box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
 }
 
-.timeline-year {
+.timeline-year, .timeline-year-left {
   font-size: 14px;
   font-weight: 500;
   color: #9ca3af;
@@ -580,7 +589,7 @@ nav .nav-link:hover::after {
 
 .cert-card:hover {
   background: rgba(255, 255, 255, 0.1);
-  transform: scale(1.01);
+  transform: scale(1.05);
 }
 
 .cert-icon {
@@ -619,11 +628,6 @@ nav .nav-link:hover::after {
 #experience {
   padding: 96px 24px;
   background: #fff;
-  background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
-  background-size: 120px 120px;
-  background-attachment: fixed;
   position: relative;
   overflow: hidden;
 }
@@ -678,7 +682,6 @@ nav .nav-link:hover::after {
 .experience-year, .experience-year-right {
   font-size: 14px;
   font-weight: 500;
-  margin-left: 30px;
   color: #6b7280;
 }
 
@@ -721,8 +724,9 @@ nav .nav-link:hover::after {
 .experience-item.right .experience-card {
   grid-column: 1;
   padding-right: 48px;
-  margin-right: 30px;
   text-align: right;
+  margin-right: 30px;
+
 }
 
 .experience-item.right .experience-year {
@@ -859,11 +863,6 @@ nav .nav-link:hover::after {
 #contact {
   padding: 96px 24px;
   background: #fff;
-  background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
-  background-size: 140px 140px;
-  background-attachment: fixed;
   position: relative;
   overflow: hidden;
 }
@@ -891,19 +890,15 @@ nav .nav-link:hover::after {
 
 .contact-methods {
   display: flex;
-  flex-direction: rows;
   gap: 24px;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 48px;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: fit-content;
   flex-wrap: wrap;
 }
 
 .contact-method {
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 12px;
   color: #4b5563;
@@ -967,7 +962,6 @@ footer {
   padding: 32px 24px;
   background: #fff;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  position: relative;
 }
 
 footer .container {
@@ -989,7 +983,6 @@ footer p:last-child {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-
 .btn-secondary-light {
     margin-bottom: 28px;
     font-size: 13px;
@@ -999,9 +992,26 @@ footer p:last-child {
     margin-bottom: 15px;
   }
   
-  .contact-methods{
-      flex-direction: column;
+  .contact-methods {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+  }
 
+  .contact-method span {
+    font-size: 13px;
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contact-icon svg {
+    width: 18px;
+    height: 18px;
   }
   .section-title {
     font-size: 64px;
@@ -1028,12 +1038,15 @@ footer p:last-child {
 
   .hero-content {
     grid-template-columns: 1fr;
-    gap: px;
+    gap: 24px;
   }
 
   .hero-image {
     margin-bottom: 0;
-    max-width: 280px;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 4/4;
   }
 
   .hero-text h1 {
@@ -1075,7 +1088,7 @@ footer p:last-child {
 
   .experience-item {
     grid-template-columns: 1fr;
-    gap: 12px;   
+    gap: 12px;
   }
 
   .experience-dot {
@@ -1089,18 +1102,12 @@ footer p:last-child {
     padding-right: 0 !important;
     margin-bottom: 0;
     grid-column: 1;
-    order: 1;
-  }
-
-  .experience-item.left {
-    text-align: left !important;
-    padding-left: px !important;
-    padding-right: 0px !important;
     margin-left: 30px;
     order: 1;
   }
 
-  .experience-item.right {
+  .experience-item.left .experience-year,
+  .experience-item.right .experience-year {
     text-align: left !important;
     padding-left: 0px !important;
     padding-right: 0 !important;
@@ -1109,6 +1116,7 @@ footer p:last-child {
   }
 
   .experience-card {
+    padding: 20px !important;
     padding: 20px !important;
     text-align: left !important;
     grid-column: 1;
@@ -1122,7 +1130,7 @@ footer p:last-child {
     padding: 20px !important;
     text-align: left !important;
     order: 2;
-    margin-left: 12px;
+    margin-left: 30px;
     width: 100%;
   }
 
@@ -1149,11 +1157,6 @@ footer p:last-child {
     transform: none;
   }
 
-  .experience-dot {
-    left: -21px;
-    transform: translateX(-50%);
-  }
-
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -1167,41 +1170,27 @@ footer p:last-child {
     font-size: 32px;
   }
 
-  .contact-card > p {
-    font-size: 14px;
-  }
-
   .contact-methods {
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
     align-items: flex-start;
     margin-left: auto;
     margin-right: auto;
-    max-width: fit-content;
+    width: fit-content;
   }
 
   .contact-method span {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .contact-icon {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
   }
 
   .contact-icon svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  .social-link {
-    width: 48px;
-    height: 48px;
-  }
-
-  .social-link svg {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
   }
 
   footer .container {
@@ -1225,23 +1214,6 @@ footer p:last-child {
     font-size: 13px;
   }
 
-  .experience-card {
-    margin-left: 16px;
-  }
-
-  .experience-item.left{
-    margin-left: 30px;
-  }
-
-  .experience-dot {
-    left: -21px;
-  }
-
-  .experience-item.right{
-    margin-left: 30px;
-    padding-right: 12px;
-  }
-    
   .contact-card h2 {
     font-size: 28px;
   }
