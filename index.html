@@ -1409,6 +1409,10 @@
         gap: 32px;
       }
 
+      #about {
+        overflow: visible;
+      }
+
       /* Experience Timeline Mobile */
       .experience-timeline::before {
         left: 8px;
@@ -2799,8 +2803,8 @@
     }
 
     .graphic-modal-content {
-      max-width: 90vw;
-      max-height: 90vh;
+      max-width: 190vw;
+      max-height: 190vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -2813,8 +2817,8 @@
     }
 
     .graphic-modal-image {
-      max-width: 100%;
-      max-height: 75vh;
+      max-width: 100%;      
+      max-height: 100vh;
       object-fit: contain;
       border-radius: 16px;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
@@ -3235,6 +3239,19 @@
                   </svg>
                   Occupation
                 </h3> <span class="info-item">3rd Year BSIT Student, Web & Mobile Technologies</span>
+              </div>
+              <div class="info-section">
+                <h3>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  Class Schedule
+                </h3>
+                <a href="#" class="info-item schedule-link" onclick="openScheduleModal(event)">View Class Schedule</a>
               </div>
             </div>
           </div>
@@ -3701,6 +3718,18 @@
     </div>
   </div>
 
+  <!-- Schedule Modal -->
+  <div id="scheduleModal" class="graphic-modal">
+    <button type="button" class="graphic-modal-close" onclick="closeScheduleModal()"
+      aria-label="Close schedule view">&times;</button>
+    <div class="graphic-modal-content">
+      <img id="scheduleModalImg" class="graphic-modal-image" src="" alt="Class Schedule" />
+      <div class="graphic-modal-caption">
+        <h3 id="scheduleModalTitle">My Class Schedule</h3>
+      </div>
+    </div>
+  </div>
+
   <!-- Video Editing and Multimedia Section -->
   <section id="video-editing" class="section-white grid-texture-light">
     <div class="container">
@@ -4020,6 +4049,9 @@
     const graphicModalTitle = document.getElementById("graphicModalTitle");
     const graphicModalDesc = document.getElementById("graphicModalDesc");
 
+    const scheduleModal = document.getElementById("scheduleModal");
+    const scheduleModalImg = document.getElementById("scheduleModalImg");
+
     function openGraphicModal(card) {
       const img = card.querySelector(".creative-image-wrap img");
       const title = card.querySelector(".creative-card-info h3");
@@ -4039,6 +4071,19 @@
       document.body.style.overflow = "";
     }
 
+    function openScheduleModal(event) {
+      event.preventDefault();
+      scheduleModalImg.src = "https://github.com/JakovSantos/JakovPortfolio/blob/main/bsit3a-schedule.png?raw=true";
+      scheduleModalImg.alt = "Class Schedule";
+      scheduleModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeScheduleModal() {
+      scheduleModal.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
     document.querySelectorAll("#graphic-design .creative-card").forEach((card) => {
       card.addEventListener("click", () => openGraphicModal(card));
     });
@@ -4049,9 +4094,20 @@
       }
     });
 
+    scheduleModal.addEventListener("click", (event) => {
+      if (event.target === scheduleModal) {
+        closeScheduleModal();
+      }
+    });
+
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && graphicModal.classList.contains("active")) {
-        closeGraphicModal();
+      if (event.key === "Escape") {
+        if (graphicModal.classList.contains("active")) {
+          closeGraphicModal();
+        }
+        if (scheduleModal.classList.contains("active")) {
+          closeScheduleModal();
+        }
       }
     });
 
